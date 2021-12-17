@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 const competitorSchema = new Schema({
     competitorName: {
         Type: String,
-        required: true,
     },
     teamName: {
         Type: String,
@@ -22,4 +21,4 @@ const competitorSchema = new Schema({
     }
 })
 
-module.exports = mongoose('Competitor', competitorSchema)
+module.exports = mongoose.model('Competitor', competitorSchema)
