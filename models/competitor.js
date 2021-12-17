@@ -16,9 +16,6 @@ const competitorSchema = new Schema({
         Type: Number,
         min: 0,
     },
-    matchList: {
-        Type: Array,
-    }
 })
 
 module.exports = mongoose.model('Competitor', competitorSchema)

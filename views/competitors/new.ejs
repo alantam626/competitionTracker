@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+
+    <label>Add Competitor</label>
+    <form action="/competitors" method="POST">
+        <label>Name:</label>
+        <input type="text" name="competitorName"><br>
+        <label>Team Name:</label>
+        <input type="text" name="teamName"><br>
+        <label>Wins:</label>
+        <input type="number" name="win"><br>
+        <label>Losses:</label>
+        <input type="number" name="lose"><br>
+        <input type="submit">
+    </form>
+
+    <%- include('../partials/footer') %>
