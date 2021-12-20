@@ -10,7 +10,17 @@
     <%- include('../partials/header') %>
 </head>
 <body>
-    <label>Competitors</label>
+    <label>Competitors</label><br>
+    <% competitors.forEach(function(competitor) { %>
+        <tr>
+            <td><%= competitor.competitorName %></td>
+            <td><%= competitor.teamName %></td>
+            <td><%= competitor.win %></td>
+            <td><%= competitor.lose %></td>
+            <td><a href="competitors/<%=competitor._id %>">Details</a></td>
+        </tr><br>   
+    <% }) %>
+    
     <a href="competitors/new">Add Competitor</a>
 </body>
 </html>

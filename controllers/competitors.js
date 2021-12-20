@@ -5,6 +5,7 @@ module.exports = {
     index,
     new: newCompetitor,
     create,
+    show,
 }
 
 function index(req, res) {
@@ -14,25 +15,29 @@ function index(req, res) {
             competitors,
         });
     });
+    
 }
 
 function newCompetitor(req, res) {
     res.render('competitors/new', {
-        title: 'Add Competitor', 
+        title: 'Add Competitor',
     })
 }
 
 function create(req, res) {
-    console.log(req.body)
-    Competitor.create(req.body, function(err, newCompetitor) {
+    const competitor = new Competitor(req.body)
+    competitor.save(function (err) {
         if (err) return res.render('competitors/new')
         res.redirect('/competitors')
     })
+}
 
-    // const competitor = new Competitor(req.body)
-    // console.log(competitor)
-    // competitor.save(function (err) {
-    //     if (err) return res.render('competitors/new')
-    //     res.redirect('/competitors')
-    // })
+async function show(req, res) {
+    let competitorDetail = await Competitor.findById(req.params.competitorId)
+    console.log(req.params)
+    res.render('competitors/show', {
+        title: 'Competitor Details',
+        competitorDetail
+
+    })
 }

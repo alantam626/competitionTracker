@@ -2,18 +2,14 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const competitorSchema = new Schema({
-    competitorName: {
-        Type: String,
-    },
-    teamName: {
-        Type: String,
-    },
+    competitorName: String,
+    teamName: String,
     win: {
-        Type: Number,
+        type: Number,
         min: 0,
     },
     lose: {
-        Type: Number,
+        type: Number,
         min: 0,
     },
 })

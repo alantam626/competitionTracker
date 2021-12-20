@@ -5,6 +5,8 @@ const competitorsCtrl = require('../controllers/competitors');
 
 router.get('/', competitorsCtrl.index);
 router.get('/new', competitorsCtrl.new);
-router.post('/', competitorsCtrl.create)
+router.get('/:competitorId', competitorsCtrl.show);
+router.post('/', competitorsCtrl.create);
+
 
 module.exports = router;
