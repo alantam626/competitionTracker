@@ -6,6 +6,8 @@ module.exports = {
     new: newCompetitor,
     create,
     show,
+    delete: deleteCompetitor,
+    update,
 }
 
 function index(req, res) {
@@ -15,7 +17,7 @@ function index(req, res) {
             competitors,
         });
     });
-    
+
 }
 
 function newCompetitor(req, res) {
@@ -40,4 +42,15 @@ async function show(req, res) {
         competitorDetail
 
     })
+}
+
+async function deleteCompetitor(req, res) {
+    Competitor.findByIdAndRemove(req.params.competitorId)
+    .then(() => res.redirect('/competitors'))
+    // find all the matches that contain  that competitor we deleted and remove those references
+    // use 'remove' middleware in model 
+}
+
+function update(res, req) {
+    Competitor.findByIdAndUpdate()
 }

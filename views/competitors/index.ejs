@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,18 +10,31 @@
     <title>Document</title>
     <%- include('../partials/header') %>
 </head>
+
 <body>
     <label>Competitors</label><br>
     <% competitors.forEach(function(competitor) { %>
         <tr>
-            <td><%= competitor.competitorName %></td>
-            <td><%= competitor.teamName %></td>
-            <td><%= competitor.win %></td>
-            <td><%= competitor.lose %></td>
+            <td>
+                <%= competitor.competitorName %>
+            </td>
+            <td>
+                <%= competitor.teamName %>
+            </td>
+            <td>
+                <%= competitor.win %>
+            </td>
+            <td>
+                <%= competitor.lose %>
+            </td>
             <td><a href="competitors/<%=competitor._id %>">Details</a></td>
-        </tr><br>   
-    <% }) %>
-    
-    <a href="competitors/new">Add Competitor</a>
+            <form action="competitors/<%=competitor._id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete</button>
+                </td>
+        </tr><br>
+        <% }) %>
+
+            <a href="competitors/new">Add Competitor</a>
 </body>
+
 </html>
