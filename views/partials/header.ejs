@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&display=swap" rel="stylesheet">
     <title>
         <%= title %>
     </title>
@@ -15,13 +19,13 @@
         <% if (user) { %>
             <a href="/competitors/new" <%- title==='Add Competitor' ? 'class="active"' : '' %>>ADD COMPETITOR</a>
             <a href="/matches/new" <%- title==='Add Match' ? 'class="active"' : '' %>>ADD MATCH</a>
-            <a href="/competitors" <%- title === 'All Competitors' ? 'class="active"' : '' %>>ALL COMPETITORS</a>
-            <a href="/matches" <%- title === 'All Matches' ? 'class="active"' : '' %>>ALL MATCHES</a>
+            <a href="/competitors" <%- title==='All Competitors' ? 'class="active"' : '' %>>ALL COMPETITORS</a>
+            <a href="/matches" <%- title==='All Matches' ? 'class="active"' : '' %>>ALL MATCHES</a>
             <a href="/logout">LOG OUT</a>
-        <% } else { %>
-            <a href="/competitors" <%- title === 'All Competitors' ? 'class="active"' : '' %>>ALL COMPETITORS</a>
-            <a href="/matches" <%- title === 'All Matches' ? 'class="active"' : '' %>>ALL MATCHES</a>
-            <a href="/auth/google" class="login">LOG IN <img src="https://i.imgur.com/FHjYyi0.png"></a>
-            <% } %>
-        </nav>
-    <main>  
+            <% } else { %>
+                <a href="/competitors" <%- title==='All Competitors' ? 'class="active"' : '' %>>ALL COMPETITORS</a>
+                <a href="/matches" <%- title==='All Matches' ? 'class="active"' : '' %>>ALL MATCHES</a>
+                <a href="/auth/google" class="login">LOG IN <img src="https://i.imgur.com/FHjYyi0.png"></a>
+                <% } %>
+    </nav>
+    <main>

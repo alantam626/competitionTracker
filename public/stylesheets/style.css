@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: Helvetica;
+  font-family: 'Hind Siliguri', sans-serif, Helvetica;
   color: #424748;
 }
 
@@ -34,7 +34,7 @@ body > main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #E8ECEB;
+  background-color: #869D9B;
   padding: 20px;
   overflow-y: scroll;
 }
@@ -51,12 +51,12 @@ nav > a {
 }
 
 nav > a:hover:not(.active) {
-  color: white;
-  background-color: #424748;
+  color: #869D9B;
+  background-color: #055953;
 }
 
 nav > a.active {
-  color: white;
+  color: #869D9B;
   cursor: default;
 }
 
@@ -98,7 +98,7 @@ table td {
 
 #list a {
   border-radius: 4px;
-  background-color: #B8C0C2;
+  background-color: #003430;
   padding: 4px;
   text-decoration: none;
   font-size: 14px;
