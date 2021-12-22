@@ -33,13 +33,13 @@
                 <form action="/competitors/<%= competitor._id %>?_method=DELETE" method="POST">
                     <td><button type="submit">Delete</button></td>
                     <% } %>
-                    <br>
-                    <% if (user) { %>
-                        <a href="competitors/new">Add Competitor</a>
-                        <% } %>
+                        <br>
         </tr><br>
         <% }) %>
-            
+            <% if (user) { %>
+                <a href="competitors/new">Add Competitor</a>
+                <% } %>
+
 </body>
 
 </html>
