@@ -1,22 +1,42 @@
 <%- include('../partials/header') %>
 
     <section id="show-page">
+        <div>Match History</div>
+        <ul>
+            <%- competitor.matchHistory.map (matchEl=>
+                `<li>${matchEl.matchName}
+                    <small>${matchEl.location}</small>
+                    <small>${matchEl.date.toLocaleString()}</small>
+                </li>`
+                ).join('') %>
+        </ul>
         <div>Competitor Name</div>
         <div>
-            <%= competitorDetail.competitorName %>
+            <%= competitor.competitorName %>
         </div>
         <div>Team</div>
         <div>
-            <%= competitorDetail.teamName %>
+            <%= competitor.teamName %>
         </div>
         <div>Wins</div>
         <div>
-            <%= competitorDetail.win %>
+            <%= competitor.win %>
         </div>
         <div>Loses</div>
         <div>
-            <%= competitorDetail.lose %>
+            <%= competitor.lose %>
         </div>
-    </section>
 
-    <%- include('../partials/footer') %>
+    </section>
+    <% if (user) { %>
+        </body>
+        <form id="add-match-to-competitor" action="/competitors/<%= competitor.id %>/matches" method="POST">
+            <select name="matchId">
+                <%- matches.map(match=>
+                    `<option value="${match._id}">${match.matchName}</option>)`
+                    ).join('') %>
+            </select>
+            <button type="submit">Add Match to Competitor Record</button>
+            <% } %>
+        </form>
+        <%- include('../partials/footer') %>

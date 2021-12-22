@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,18 +9,27 @@
     <title>Document</title>
     <%- include('../partials/header') %>
 </head>
+
 <body>
     <label>Matches</label><br>
     <% matches.forEach(function(match) { %>
         <tr>
-            <td><%= match.matchName %></td>
-            <td><%= match.location %></td>
-            <td><%= match.date %></td>
+            <td>
+                <%= match.matchName %>
+            </td>
+            <td>
+                <%= match.location %>
+            </td>
+            <td>
+                <%= match.date %>
+            </td>
             <td><a href="matches/<%=match._id %>">Details</a></td>
         </tr><br>
 
-    <% }) %>
-    <a href="matches/new">Add New Match</a>
-    
+        <% }) %>
+            <% if (user) { %>
+                <a href="matches/new">Add New Match</a>
+                <% } %>
 </body>
+
 </html>

@@ -12,6 +12,7 @@ const competitorSchema = new Schema({
         type: Number,
         min: 0,
     },
+    matchHistory: [{type: Schema.Types.ObjectId, ref: 'Match'}]
 })
 
 module.exports = mongoose.model('Competitor', competitorSchema)

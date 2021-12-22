@@ -12,12 +12,16 @@
 
 <body>
     <nav>
-            <!-- <a href="/matches" <%- title==='All Matches' ? 'class="active"' : '' %>>ALL MATCHES</a>
+        <% if (user) { %>
             <a href="/competitors/new" <%- title==='Add Competitor' ? 'class="active"' : '' %>>ADD COMPETITOR</a>
             <a href="/matches/new" <%- title==='Add Match' ? 'class="active"' : '' %>>ADD MATCH</a>
-            <a href="/logout">LOG OUT</a> -->
+            <a href="/competitors" <%- title === 'All Competitors' ? 'class="active"' : '' %>>ALL COMPETITORS</a>
+            <a href="/matches" <%- title === 'All Matches' ? 'class="active"' : '' %>>ALL MATCHES</a>
+            <a href="/logout">LOG OUT</a>
+        <% } else { %>
             <a href="/competitors" <%- title === 'All Competitors' ? 'class="active"' : '' %>>ALL COMPETITORS</a>
             <a href="/matches" <%- title === 'All Matches' ? 'class="active"' : '' %>>ALL MATCHES</a>
             <a href="/auth/google" class="login">LOG IN <img src="https://i.imgur.com/FHjYyi0.png"></a>
-    </nav>
+            <% } %>
+        </nav>
     <main>  

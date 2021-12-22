@@ -27,14 +27,19 @@
             <td>
                 <%= competitor.lose %>
             </td>
-            <td><a href="competitors/<%=competitor._id %>">Details</a></td>
-            <form action="competitors/<%=competitor._id %>?_method=DELETE" method="POST">
-                <button type="submit">Delete</button>
-                </td>
+            <td><a href="/competitors/<%= competitor._id %>">Details</a></td>
+            <% if (user) { %>
+                <td><a href="/competitors/<%= competitor._id %>/edit">Edit</a></td>
+                <form action="/competitors/<%= competitor._id %>?_method=DELETE" method="POST">
+                    <td><button type="submit">Delete</button></td>
+                    <% } %>
+                    <br>
+                    <% if (user) { %>
+                        <a href="competitors/new">Add Competitor</a>
+                        <% } %>
         </tr><br>
         <% }) %>
-
-            <a href="competitors/new">Add Competitor</a>
+            
 </body>
 
 </html>

@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+
+    <label>Update Competitor</label>
+    <form action="/competitors/<%= competitor._id %>?_method=PUT" method="POST">
+        <label>Name:</label>
+        <input type="text" name="competitorName" value= <%= competitor.competitorName %>><br>
+        <label>Team Name:</label>
+        <input type="text" name="teamName" value=<%= competitor.teamName %>><br>
+        <label>Wins:</label>
+        <input type="number" name="win" value=<%= competitor.win %>><br>
+        <label>Losses:</label>
+        <input type="number" name="lose" value=<%= competitor.lose %>><br>
+        <input type="submit">
+    </form>
+
+    <%- include('../partials/footer') %>
