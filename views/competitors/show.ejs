@@ -1,6 +1,23 @@
 <%- include('../partials/header') %>
 
     <section id="show-page">
+        <div>Competitor Name:</div>
+        <div>
+            <%= competitor.competitorName %>
+        </div>
+        <div>Team:</div>
+        <div>
+            <%= competitor.teamName %>
+        </div>
+        <div>Wins:</div>
+        <div>
+            <%= competitor.win %>
+        </div>
+        <div>Loses:</div>
+        <div>
+            <%= competitor.lose %>
+        </div>
+
         <div>Match History</div>
         <ul>
             <%- competitor.matchHistory.map (matchEl=>
@@ -10,23 +27,6 @@
                 </li>`
                 ).join('') %>
         </ul>
-        <div>Competitor Name</div>
-        <div>
-            <%= competitor.competitorName %>
-        </div>
-        <div>Team</div>
-        <div>
-            <%= competitor.teamName %>
-        </div>
-        <div>Wins</div>
-        <div>
-            <%= competitor.win %>
-        </div>
-        <div>Loses</div>
-        <div>
-            <%= competitor.lose %>
-        </div>
-
     </section>
     <% if (user) { %>
         </body>

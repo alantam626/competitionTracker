@@ -1,35 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=
-    , initial-scale=1.0">
     <title>Document</title>
     <%- include('../partials/header') %>
 </head>
 
 <body>
-    <label>Matches</label><br>
-    <% matches.forEach(function(match) { %>
-        <tr>
-            <td>
-                <%= match.matchName %>
-            </td>
-            <td>
-                <%= match.location %>
-            </td>
-            <td>
-                <%= match.date %>
-            </td>
-            <td><a href="matches/<%=match._id %>">Details</a></td>
-        </tr><br>
-
-        <% }) %>
-            <% if (user) { %>
-                <a href="matches/new">Add New Match</a>
-                <% } %>
+    <h2>Matches</h2>
+        <% if (user) { %>
+            <a href="matches/new">Add New Match</a>
+            <% } %>
+    <table id="match-list">
+        <thead>
+            <tr>
+                <th>Match Name</th>
+                <th>Location</th>
+                <th>Match Date</th>
+                <th></th>
+        </thead>
+                <% matches.forEach(function(match) { %>  
+                    <tbody>
+                        <tr>
+                            <td>
+                                <%= match.matchName %>
+                            </td>
+                            <td>
+                                <%= match.location %>
+                            </td>
+                            <td>
+                                <%= match.date %>
+                            </td>
+                            <td><a href="matches/<%=match._id %>">Details</a></td>
+                        </tr><br>
+                        <% }) %>
+    </table>
 </body>
 
 </html>

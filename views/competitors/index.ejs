@@ -1,45 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('../partials/header') %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=
-    , initial-scale=1.0">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <title>Document</title>
-    <%- include('../partials/header') %>
-</head>
+    <body>
+        <h2>Competitors</h2>
+        <% if (user) { %>
+            <a href="competitors/new">Add Competitor</a>
+            <% } %>
+                <table id="competitor-list">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Team Name</th>
+                            <th> Wins</th>
+                            <th>Loses</th>
+                            <th></th>
+                            <th>Options</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% competitors.forEach(function(competitor) { %>
+                            <tr>
+                                <td>
+                                    <%= competitor.competitorName %>
+                                </td>
+                                <td>
+                                    <%= competitor.teamName %>
+                                </td>
+                                <td>
+                                    <%= competitor.win %>
+                                </td>
+                                <td>
+                                    <%= competitor.lose %>
+                                </td>
+                                <td><a href="/competitors/<%= competitor._id %>">Details</a></td>
+                                <% if (user) { %>
+                                    <td><a href="/competitors/<%= competitor._id %>/edit">Edit</a></td>
+                                    <form action="/competitors/<%= competitor._id %>?_method=DELETE" method="POST">
+                                        <td><button type="submit">Delete</button></td>
+                                        <% } %>
+                                    <% }) %>
+                    </tbody>
+                </table>
+                </tr>
 
-<body>
-    <label>Competitors</label><br>
-    <% competitors.forEach(function(competitor) { %>
-        <tr>
-            <td>
-                <%= competitor.competitorName %>
-            </td>
-            <td>
-                <%= competitor.teamName %>
-            </td>
-            <td>
-                <%= competitor.win %>
-            </td>
-            <td>
-                <%= competitor.lose %>
-            </td>
-            <td><a href="/competitors/<%= competitor._id %>">Details</a></td>
-            <% if (user) { %>
-                <td><a href="/competitors/<%= competitor._id %>/edit">Edit</a></td>
-                <form action="/competitors/<%= competitor._id %>?_method=DELETE" method="POST">
-                    <td><button type="submit">Delete</button></td>
-                    <% } %>
-                        <br>
-        </tr><br>
-        <% }) %>
-            <% if (user) { %>
-                <a href="competitors/new">Add Competitor</a>
-                <% } %>
-
-</body>
-
-</html>
+    </body>
